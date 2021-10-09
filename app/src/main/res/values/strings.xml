@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">TimeTable</string>
+
+    <string-array name="days">
+        <item>- Select Day of your Period -</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
+
+</resources>

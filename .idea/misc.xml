@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Mr.D/Self Evolve/File/TimeTable2/app/src/main/res/layout/activity_main.xml" value="0.1723684210526316" />
+        <entry key="..\:/Mr.D/Self Evolve/File/backup/Updated/Oct,4/TimeTable2/app/src/main/res/layout/activity_add_achievements.xml" value="0.17702702702702702" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/drawable/bg_achievements.xml" value="0.14652777777777778" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/drawable/button_shape.xml" value="0.13541666666666666" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/drawable/card_bg.xml" value="0.1875" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/drawable/delete_icon.xml" value="0.18078175895765472" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/drawable/ic_date.xml" value="0.1875" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/drawable/ic_edit.xml" value="0.18078175895765472" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/drawable/options.xml" value="0.18078175895765472" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/drawable/share_icon.xml" value="0.10427631578947369" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/drawable/splash_screen.xml" value="0.24814814814814815" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/ac_note_holder.xml" value="0.17702702702702702" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/activity_achievements.xml" value="0.12355212355212356" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/activity_add_achievements.xml" value="0.16" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/activity_edit_note.xml" value="0.1723684210526316" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/activity_notes_create.xml" value="0.15" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/activity_reminder_create.xml" value="0.2" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/activity_reminder_notes.xml" value="0.18" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/activity_update_achievements.xml" value="0.17702702702702702" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/activity_update_notes.xml" value="0.16" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/edit_note.xml" value="0.17702702702702702" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/note_holder.xml" value="0.25" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/note_input.xml" value="0.2" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/layout/reminder_note_holder.xml" value="0.1723684210526316" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/menu/options_menu.xml" value="0.1" />
+        <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/menu/search.xml" value="0.18194444444444444" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
