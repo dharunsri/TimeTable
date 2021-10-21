@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         setTheme(R.style.Theme_TimeTable);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().hide();
+
         Reminder = findViewById(R.id.Reminder_Notes);
         Achievements = findViewById(R.id.Achievements);
 

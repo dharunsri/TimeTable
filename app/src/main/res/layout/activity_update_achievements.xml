@@ -110,6 +110,25 @@
                 android:layout_marginLeft="@dimen/_65sdp"
                 android:backgroundTint="@color/black"
                 android:text="upload"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 android:textColor="@color/white" />
 
 

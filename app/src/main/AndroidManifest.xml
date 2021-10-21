@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TimeTable.Launcher">
         <activity
+            android:name=".Reminder_Notes"
+            android:exported="false" />
+        <activity
             android:name=".UpdateAchievements"
             android:exported="true" />
         <activity

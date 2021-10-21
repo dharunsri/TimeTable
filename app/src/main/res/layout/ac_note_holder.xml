@@ -5,14 +5,13 @@
     android:id="@+id/ac_note_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_5sdp">
+    android:layout_margin="@dimen/_5sdp"
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_70sdp"
-        android:layout_margin="@dimen/_5sdp"
-        app:cardCornerRadius="@dimen/_11sdp"
-        android:layout_marginTop="@dimen/_2sdp">
+        app:cardCornerRadius="@dimen/_11sdp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

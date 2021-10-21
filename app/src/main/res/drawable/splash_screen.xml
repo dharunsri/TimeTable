@@ -3,7 +3,7 @@
 
     <item android:drawable="@color/white"/>
     <item>
-        <bitmap android:src="@drawable/logo_apple" android:gravity="fill" />
+        <bitmap android:src="@drawable/jungkook" android:gravity="fill" />
     </item>
 
 </layer-list>

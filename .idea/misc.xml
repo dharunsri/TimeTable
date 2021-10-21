@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Mr.D/Files/TimeTable-main/app/src/main/res/drawable/splash_screen.xml" value="0.22412280701754386" />
+        <entry key="..\:/Mr.D/Files/TimeTable-main/app/src/main/res/layout/ac_note_holder.xml" value="0.21052631578947367" />
+        <entry key="..\:/Mr.D/Files/TimeTable-main/app/src/main/res/layout/activity_achievements.xml" value="0.27447916666666666" />
+        <entry key="..\:/Mr.D/Files/TimeTable-main/app/src/main/res/layout/activity_add_achievements.xml" value="0.536" />
+        <entry key="..\:/Mr.D/Files/TimeTable-main/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Mr.D/Files/TimeTable-main/app/src/main/res/layout/activity_reminder_notes.xml" value="0.21052631578947367" />
+        <entry key="..\:/Mr.D/Files/TimeTable-main/app/src/main/res/layout/activity_update_achievements.xml" value="0.264" />
+        <entry key="..\:/Mr.D/Files/TimeTable-main/app/src/main/res/menu/options_menu.xml" value="0.1" />
+        <entry key="..\:/Mr.D/Files/TimeTable-main/app/src/main/res/menu/search.xml" value="0.264" />
         <entry key="..\:/Mr.D/Self Evolve/File/TimeTable2/app/src/main/res/layout/activity_main.xml" value="0.1723684210526316" />
         <entry key="..\:/Mr.D/Self Evolve/File/backup/Updated/Oct,4/TimeTable2/app/src/main/res/layout/activity_add_achievements.xml" value="0.17702702702702702" />
         <entry key="..\:/Users/ADMINRG-127PSUN/AndroidStudioProjects/TimeTable2/app/src/main/res/drawable/bg_achievements.xml" value="0.14652777777777778" />

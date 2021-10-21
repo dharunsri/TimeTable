@@ -2,11 +2,13 @@ package com.innovators.timetable;
 
 import static android.provider.OpenableColumns.DISPLAY_NAME;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -33,6 +35,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URISyntaxException;
 import java.nio.channels.FileChannel;
 import java.util.Calendar;
 
@@ -44,7 +47,7 @@ public class add_achievements extends AppCompatActivity implements AdapterView.O
     EditText eventDate,CollegeName,EventName;
     TextView upload_certificate;
     Button upload_button, add_achievements;
-    private static final int PICKFILE_RESULT_CODE = 1;
+    private static final int FILE_SELECT_CODE = 1;
 
     String[] events = { "- Select the event -","Symposium", "Workshop",
             "Paper Presentation", "Hackathon",
@@ -53,6 +56,8 @@ public class add_achievements extends AppCompatActivity implements AdapterView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_achievements);
+
+        getSupportActionBar().hide();
 
         initDatePicker();
 
@@ -94,116 +99,167 @@ public class add_achievements extends AppCompatActivity implements AdapterView.O
 
 
 
-        upload_certificate.setOnClickListener(new View.OnClickListener() {
+        upload_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
-                chooseFile.addCategory(Intent.CATEGORY_OPENABLE);
-                chooseFile.setType("*/*");
-                startActivityForResult(
-                        Intent.createChooser(chooseFile, "Choose a file"),
-                        PICKFILE_RESULT_CODE
-                );
+//                Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
+//                chooseFile.addCategory(Intent.CATEGORY_OPENABLE);
+//                chooseFile.setType("*/*");
+//                startActivityForResult(
+//                        Intent.createChooser(chooseFile, "Choose a file"),
+//                        FILE_SELECT_CODE
+//                );
+
+                showFileChooser();
             }
         });
 
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICKFILE_RESULT_CODE && resultCode == Activity.RESULT_OK){
-            Uri content_describer = data.getData();
-            //String src = Environment.getExternalStorageDirectory().getAbsolutePath()+content_describer;
-            String fileString = content_describer.toString();
-            File file = new File(fileString);
-            String path = file.getAbsolutePath();
-            Log.d("src is ", file.toString());
-            String displayName = file.getName();
-            String filename = displayName;
-            //upload_certificate.setText(src);
-            Log.d("FileName is ",filename);
-            File destination = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),"TimeTable");
-            upload_certificate.setText(filename);
-            Log.d("Destination is ", destination.toString());
-            //SetToFolder.setEnabled(true);
+    private void showFileChooser() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("*/*");
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
 
-            //Uri content_describer = data.getData();
-
-            upload_button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    File file = destination;
-
-                    if (!file.exists()){
-
-                        file.mkdir();
-
-                        Toast.makeText(add_achievements.this,"Successful",Toast.LENGTH_SHORT).show();
-                    }else
-                    {
-
-                        Toast.makeText(add_achievements.this,"Folder Already Exists",Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
-    }
-
-    public static void copy(File src, File dst) throws IOException {
-        InputStream in = new FileInputStream(src);
         try {
-            OutputStream out = new FileOutputStream(dst);
-            try {
-                // Transfer bytes from in to out
-                byte[] buf = new byte[1024];
-                int len;
-                while ((len = in.read(buf)) > 0) {
-                    out.write(buf, 0, len);
-                }
-            } finally {
-                out.close();
-            }
-        } finally {
-            in.close();
+            startActivityForResult(
+                    Intent.createChooser(intent, "Select a File to Upload"),
+                    FILE_SELECT_CODE);
+        } catch (android.content.ActivityNotFoundException ex) {
+            // Potentially direct the user to the Market with a Dialog
+            Toast.makeText(this, "Please install a File Manager.",
+                    Toast.LENGTH_SHORT).show();
         }
     }
 
-    //private void copy(File source, File destination) throws IOException {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode) {
+            case FILE_SELECT_CODE:
+                if (resultCode == RESULT_OK) {
+                    // Get the Uri of the selected file
+                    Uri uri = data.getData();
+                    Log.d("FilePicker", "File Uri: " + uri.toString());
+                    // Get the path
+                    String path = null;
+                    try {
+                        path = getPath(this, uri);
+                        //File file = new File(path);
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d("FilePicker", "File Path: " + path);
+                    // Get the file instance
+                    // File file = new File(path);
+                    // Initiate the upload
+                    upload_certificate.setText("File Selected");
+                    File destination = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),"TimeTable");
+                    //File filepath = new File(path);
+                    try {
+                        copyDirectory(new File(path),destination);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
-//        InputStream in = new FileInputStream(source);
-//
-//        OutputStream out = new FileOutputStream(destination);
-//
-//        // Copy the bits from instream to outstream
-//        byte[] buf = new byte[1024];
-//        int len;
-//        while ((len = in.read(buf)) > 0) {
-//            out.write(buf, 0, len);
-//        }
-//        in.close();
-//        out.close();
+                }
+                break;
 
-//        FileChannel in = new FileInputStream(source).getChannel();
-//        FileChannel out = new FileOutputStream(destination).getChannel();
-//        if(!destination.isDirectory()) {
-//            if (destination.mkdirs()) {
-//                Toast.makeText(this,"Directory created ",Toast.LENGTH_SHORT).show();
-//            } else {
-//                Toast.makeText(this,"Directory exist ",Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//        try {
-//            in.transferTo(0, in.size(), out);
-//        } catch(Exception e){
-//            Log.d("Exception", e.toString());
-//        } finally {
-//            if (in != null)
-//                in.close();
-//            if (out != null)
-//                out.close();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public static String getPath(Context context, Uri uri) throws URISyntaxException {
+        if ("content".equalsIgnoreCase(uri.getScheme())) {
+            String[] projection = { "_data" };
+            Cursor cursor = null;
+
+            try {
+                cursor = context.getContentResolver().query(uri, projection, null, null, null);
+                int column_index = cursor.getColumnIndexOrThrow("_data");
+                if (cursor.moveToFirst()) {
+                    return cursor.getString(column_index);
+                }
+            } catch (Exception e) {
+                // Eat it
+            }
+        }
+        else if ("file".equalsIgnoreCase(uri.getScheme())) {
+            return uri.getPath();
+        }
+
+        return null;
+    }
+
+    public void copyDirectory(File sourceLocation , File targetLocation)
+            throws IOException {
+
+        if (sourceLocation.isDirectory()) {
+            if (!targetLocation.exists()) {
+                targetLocation.mkdir();
+            }
+
+            String[] children = sourceLocation.list();
+            for (int i=0; i<children.length; i++) {
+                copyDirectory(new File(sourceLocation, children[i]),
+                        new File(targetLocation, children[i]));
+            }
+        } else {
+
+            InputStream in = new FileInputStream(sourceLocation);
+            OutputStream out = new FileOutputStream(targetLocation);
+
+            // Copy the bits from instream to outstream
+            byte[] buf = new byte[1024];
+            int len;
+            while ((len = in.read(buf)) > 0) {
+                out.write(buf, 0, len);
+            }
+            in.close();
+            out.close();
+        }
+    }
+
+    //    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == PICKFILE_RESULT_CODE && resultCode == Activity.RESULT_OK){
+//            Uri content_describer = data.getData();
+//            //String src = Environment.getExternalStorageDirectory().getAbsolutePath()+content_describer;
+//            String fileString = content_describer.toString();
+//            File file = new File(fileString);
+//            String path = file.getAbsolutePath();
+//            Log.d("src is ", file.toString());
+//            String displayName = file.getName();
+//            String filename = displayName;
+//            //upload_certificate.setText(src);
+//            Log.d("FileName is ",filename);
+//            File destination = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),"TimeTable");
+//            upload_certificate.setText(filename);
+//            Log.d("Destination is ", destination.toString());
+//            //SetToFolder.setEnabled(true);
+//
+//            //Uri content_describer = data.getData();
+//
+//            upload_button.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    File file = destination;
+//
+//                    if (!file.exists()){
+//
+//                        file.mkdir();
+//
+//                        Toast.makeText(add_achievements.this,"Successful",Toast.LENGTH_SHORT).show();
+//                    }else
+//                    {
+//
+//                        Toast.makeText(add_achievements.this,"Folder Already Exists",Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//            });
 //        }
 //    }
+//
 
     private String getTodaysDate()
     {

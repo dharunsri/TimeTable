@@ -33,6 +33,8 @@ public class notesCreate extends AppCompatActivity implements AdapterView.OnItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_create);
 
+        getSupportActionBar().hide();
+
         start = findViewById(R.id.startTime);
         end = findViewById(R.id.endTime);
         spinner = findViewById(R.id.days);

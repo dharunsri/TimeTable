@@ -87,7 +87,7 @@ public class ac_Adapter extends RecyclerView.Adapter<ac_Adapter.MyViewHolder> im
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
                 for(ac_Model item : newList){
-                    if(item.getCollegeName().toLowerCase().contains(filterPattern)){
+                    if(item.getEventType().toLowerCase().contains(filterPattern)){
                         filteredList.add(item);
                     }
                 }

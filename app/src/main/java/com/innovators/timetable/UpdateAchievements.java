@@ -36,6 +36,10 @@ public class UpdateAchievements extends AppCompatActivity implements AdapterView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_achievements);
 
+        getSupportActionBar().hide();
+
+        initDatePicker();
+
         eventType = findViewById(R.id.Events);
         eventDate = findViewById(R.id.event_date);
         CollegeName = findViewById(R.id.college_name);

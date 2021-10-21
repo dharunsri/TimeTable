@@ -44,9 +44,9 @@ public class Achievements extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.recyclerView);
-        search = (SearchView) findViewById(R.id.searchView);
-        search.setQueryHint("Search Achievements here");
-        search.setMaxWidth(Integer.MAX_VALUE);
+//        search = (SearchView) findViewById(R.id.searchView);
+//        search.setQueryHint("Search Achievements here");
+//        search.setMaxWidth(Integer.MAX_VALUE);
 
 
         coordinatorLayout = findViewById(R.id.layout_achievements);
@@ -86,8 +86,32 @@ public class Achievements extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
+        getMenuInflater().inflate(R.menu.search,menu);
 
+        MenuItem searchItem = menu.findItem(R.id.searchBar);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setQueryHint("Search Notes Here");
+
+        SearchView.OnQueryTextListener listener = new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return true;
+            }
+        };
+
+        searchView.setOnQueryTextListener(listener);
+
+        return super.onCreateOptionsMenu(menu);
+    }
 
     public void OpenAddAchievements(){
         Intent intent = new Intent(this, add_achievements.class);
