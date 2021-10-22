@@ -81,6 +81,13 @@ public class MainActivity extends AppCompatActivity {
         time = findViewById(R.id.time);
         add = (ImageButton) findViewById(R.id.add);
 
+        Reminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GoToReminderNotes();
+            }
+        });
+
         Achievements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -207,6 +214,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void GoToAchievements(){
         Intent intent = new Intent(this, com.innovators.timetable.Achievements.class);
+        startActivity(intent);
+    }
+
+    public void GoToReminderNotes(){
+        Intent intent = new Intent(this, Reminder_Notes.class);
         startActivity(intent);
     }
 

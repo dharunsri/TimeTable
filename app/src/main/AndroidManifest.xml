@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TimeTable.Launcher">
         <activity
+            android:name=".Update_Reminder_Notes"
+            android:exported="false" />
+        <activity
+            android:name=".add_reminders"
+            android:exported="false" />
+        <activity
             android:name=".Reminder_Notes"
             android:exported="false" />
         <activity
