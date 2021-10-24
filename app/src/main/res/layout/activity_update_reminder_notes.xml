@@ -20,6 +20,23 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
+
+    <TextView
+        android:id="@+id/reminder_date"
+        android:layout_width="@dimen/_230sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textAlignment="textEnd"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/r_title"
+        app:layout_constraintEnd_toStartOf="@+id/reminder"
+        app:layout_constraintHorizontal_bias="0.879"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/r_title"
         android:layout_width="match_parent"

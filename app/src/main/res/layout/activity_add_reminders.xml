@@ -20,6 +20,23 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
+
+    <TextView
+        android:id="@+id/reminder_date"
+        android:layout_width="@dimen/_230sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textAlignment="textEnd"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/r_title"
+        app:layout_constraintEnd_toStartOf="@+id/reminder"
+        app:layout_constraintHorizontal_bias="0.879"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/r_title"
         android:layout_width="match_parent"
@@ -29,7 +46,8 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="22sp"
-        android:textColorHint="@color/white"
+        android:textAlignment="center"
+        android:textColorHint="#A8A8A8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,8 +59,9 @@
         android:layout_marginTop="@dimen/_9sdp"
         android:background="@null"
         android:hint="Enter something to remind."
-        android:textColorHint="@color/white"
+        android:textColorHint="#A8A8A8"
         android:textSize="22sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/add_reminder_bt"
         app:layout_constraintTop_toBottomOf="@+id/r_title"
         app:layout_constraintVertical_bias="0.013"
