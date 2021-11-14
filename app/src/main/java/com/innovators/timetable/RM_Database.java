@@ -15,10 +15,11 @@ public class RM_Database extends SQLiteOpenHelper {
     private static final String DatabaseName = "MyReminder";
     private static final int DatabaseVersion = 1;
 
-    private static final String TableName = "myreminder";
+    private static final String TableName = "myreminder2";
     private static final String ColumnId = "id";
     private static final String ColumnTitle = "title";
     private static final String ColumnDescription = "description";
+    private static final String ColumnDate = "date";
 
     public RM_Database(@Nullable Context context) {
         super(context, DatabaseName, null, DatabaseVersion);
@@ -32,7 +33,8 @@ public class RM_Database extends SQLiteOpenHelper {
         String query = "CREATE TABLE " + TableName +
                 " (" + ColumnId + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 ColumnTitle + " TEXT, " +
-                ColumnDescription + " TEXT);";
+                ColumnDescription + " TEXT, " +
+                ColumnDate +" TEXT);";
 
         db.execSQL(query);
 
@@ -44,12 +46,13 @@ public class RM_Database extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addNotes(String title, String description) {
+    void addNotes(String title, String description, String date) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
         cv.put(ColumnTitle, title);
         cv.put(ColumnDescription, description);
+        cv.put(ColumnDate, date);
 
         long resultValue = db.insert(TableName, null, cv);
 
@@ -77,12 +80,13 @@ public class RM_Database extends SQLiteOpenHelper {
         database.execSQL(query);
     }
 
-    void updateNotes(String title, String description, String id) {
+    void updateNotes(String title, String description, String date, String id) {
         SQLiteDatabase database = this.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
         cv.put(ColumnTitle, title);
         cv.put(ColumnDescription, description);
+        cv.put(ColumnDate, date);
 
         long result = database.update(TableName, cv, "id=?", new String[]{id});
         if (result == -1) {

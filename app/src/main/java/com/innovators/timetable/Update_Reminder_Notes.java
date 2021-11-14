@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.allyants.notifyme.NotifyMe;
+
 import java.util.Calendar;
 
 public class Update_Reminder_Notes extends AppCompatActivity {
@@ -60,7 +62,7 @@ public class Update_Reminder_Notes extends AppCompatActivity {
                 {
 
                     RM_Database db = new RM_Database(Update_Reminder_Notes.this);
-                    db.updateNotes(title.getText().toString(),description.getText().toString(),id);
+                    db.updateNotes(title.getText().toString(),description.getText().toString(),reminder_date.getText().toString(),id);
 
                     Intent i=new Intent(Update_Reminder_Notes.this,Reminder_Notes.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -88,6 +90,11 @@ public class Update_Reminder_Notes extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 date_time = dayOfMonth + "-" + (month + 1) + "-" + year;
+
+                cal.set(Calendar.YEAR, year);
+                cal.set(Calendar.MONTH,month);
+                cal.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+
                 timePicker();
 
             }
@@ -107,6 +114,22 @@ public class Update_Reminder_Notes extends AppCompatActivity {
                 int Minute = minute;
 
                 reminder_date.setText(date_time+" ("+hourOfDay+":"+minute+")");
+
+                cal.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                cal.set(Calendar.MINUTE,minute);
+
+                NotifyMe notifyMe = new NotifyMe.Builder(getApplicationContext())
+                        .title(title.getText().toString())
+                        .content(description.getText().toString())
+                        .color(255,0,0,255)
+                        .led_color(255,255,255,255)
+                        .time(cal)
+                        .addAction(new Intent(),"Snooze", false)
+                        .key("test")
+                        .addAction(new Intent(),"Dismiss", true, false)
+                        .addAction(new Intent(), "Done")
+                        .large_icon(R.mipmap.ic_launcher_round)
+                        .build();
             }
         }, Hour, Minute, false);
         timePickerDialog.show();

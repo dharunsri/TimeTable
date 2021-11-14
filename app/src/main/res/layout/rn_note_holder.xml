@@ -20,9 +20,12 @@
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="6dp"
-                android:layout_marginEnd="112dp"
+                android:layout_marginEnd="50dp"
+                android:textAlignment="center"
                 android:layout_marginBottom="6dp"
                 android:text="This is the Title"
                 android:textColor="@color/black"
@@ -31,14 +34,15 @@
 
             <TextView
                 android:id="@+id/description"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/title"
                 android:layout_marginStart="6dp"
-                android:maxLines="1"
                 android:layout_marginTop="14dp"
                 android:layout_marginEnd="6dp"
                 android:layout_marginBottom="6dp"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:text="This is the description"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
@@ -50,14 +54,14 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/title"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="62dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="14dp"
                 android:layout_marginEnd="7dp"
                 android:layout_toEndOf="@+id/description"
                 android:text="Date and Time"
                 android:textAlignment="textEnd"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
 
         </RelativeLayout>

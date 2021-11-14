@@ -38,6 +38,7 @@ public class RN_Adapter extends RecyclerView.Adapter<RN_Adapter.MyViewHolder> {
 
         holder1.title.setText(notesList.get(position).getTitle());
         holder1.description.setText(notesList.get(position).getDescription());
+        holder1.date.setText(notesList.get(position).getDate());
 
         holder1.layout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +47,7 @@ public class RN_Adapter extends RecyclerView.Adapter<RN_Adapter.MyViewHolder> {
 
                 intent.putExtra("title", notesList.get(position).getTitle());
                 intent.putExtra("description", notesList.get(position).getDescription());
+                intent.putExtra("date", notesList.get(position).getDate());
                 intent.putExtra("id", notesList.get(position).getId());
 
                 layout.startActivity(intent);
@@ -62,7 +64,7 @@ public class RN_Adapter extends RecyclerView.Adapter<RN_Adapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView title, description;
+        TextView title, description, date;
         RelativeLayout layout;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -70,6 +72,7 @@ public class RN_Adapter extends RecyclerView.Adapter<RN_Adapter.MyViewHolder> {
 
             title = itemView.findViewById(R.id.title);
             description = itemView.findViewById(R.id.description);
+            date = itemView.findViewById(R.id.datetime);
             layout = itemView.findViewById(R.id.rn_note_layout);
         }
     }

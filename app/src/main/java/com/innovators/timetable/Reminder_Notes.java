@@ -60,6 +60,7 @@ public class Reminder_Notes extends AppCompatActivity {
         ItemTouchHelper helper = new ItemTouchHelper(callback);
         helper.attachToRecyclerView(recyclerView);
 
+
     }
 
     void fetchAllNotesFromDatabase() {
@@ -69,7 +70,7 @@ public class Reminder_Notes extends AppCompatActivity {
             Toast.makeText(this, "No Data to show", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
-                notesList.add(new RN_Model(cursor.getString(1), cursor.getString(2), cursor.getString(0)));
+                notesList.add(new RN_Model(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(0)));
             }
         }
 
